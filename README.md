@@ -1,6 +1,6 @@
 # My Library App
 
-An app to keep track of your reading lists. Designed as part of [The Odin Project's](https://www.theodinproject.com/) full-stack JavaScript pathway. [Live preview](https://github.com/IceCoffee426/my-library).
+An app to keep track of your reading lists. Designed as part of [The Odin Project's](https://www.theodinproject.com/) full-stack JavaScript pathway. [Live preview](https://icecoffee426.github.io/my-library).
 
 ## Description
 
