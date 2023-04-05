@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito"
+    />
+    <link rel="stylesheet" href="style.css" class="css" />
+    <script src="script.js" defer></script>
+    <title>My Library</title>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <h1 class="website-name">My Library</h1>
+      <button id="login">Log in</button>
+    </header>
+
+    <!-- Main section -->
+    <main>
+      <button id="add-book">+</button>
+
+      <!-- Book library -->
+      <div class="book-library">
+        <!-- Book form to add new books -->
+        <form class="book-card" id="book-form">
+          <div class="card-buttons">
+            <button class="confirm" type="submit" id="form-tick-btn">✔</button>
+            <button class="delete" type="button" id="form-delete-btn">×</button>
+          </div>
+          <div class="book-details">
+            <input
+              id="title"
+              type="text"
+              placeholder="Book title"
+              maxlength="100"
+              required
+            />
+            <input
+              id="author"
+              type="text"
+              placeholder="Author"
+              maxlength="100"
+              required
+            />
+            <input
+              id="pages"
+              type="number"
+              placeholder="Pages"
+              maxlength="10"
+              required
+            />
+            <button
+              class="read-toggle not-read"
+              type="button"
+              id="form-read-btn"
+            ></button>
+          </div>
+        </form>
+
+        <!-- Sample book card -->
+        <!-- <div class="book-card">
+          <div class="card-buttons">
+            <button class="edit">✐</button>
+            <button class="delete">×</button>
+          </div>
+          <div class="book-details">
+            <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit dignissimos modi hic quis at porro vitae cu</p>
+            <p class="author">Lorem ipsum dolor sit amet consectetur adipisicing elit dignissimos modi hic quis at porro vitae cu</p>
+            <p class="pages">1000</p>
+            <button class="read-toggle read"></button>
+          </div>
+        </div> -->
+      </div>
+
+      <!-- Modal to confirm deletion -->
+      <div class="modal" id="delete-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Confirm deletion</h2>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to remove this book from your library?</p>
+          </div>
+          <div class="modal-footer">
+            <button class="modal-btn yes" id="confirm-delete" type="button">
+              Yes
+            </button>
+            <button class="modal-btn no" id="close-modal" type="button">
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal to edit a book -->
+      <div class="modal" id="edit-modal">
+        <div class="modal-body">
+          <form class="book-card edit-modal-content" id="book-edit-form">
+            <div class="card-buttons">
+              <button class="confirm" type="submit" id="edit-tick-btn">
+                ✔
+              </button>
+              <button class="delete" type="button" id="edit-delete-btn">
+                ×
+              </button>
+            </div>
+            <div class="book-details">
+              <input
+                id="e-title"
+                type="text"
+                placeholder="Book title"
+                maxlength="100"
+                required
+              />
+              <input
+                id="e-author"
+                type="text"
+                placeholder="Author"
+                maxlength="100"
+                required
+              />
+              <input
+                id="e-pages"
+                type="number"
+                placeholder="Pages"
+                maxlength="10"
+                required
+              />
+              <button
+                class="read-toggle not-read"
+                type="button"
+                id="e-form-read-btn"
+              ></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; IceCoffee426</p>
+      <a href="https://github.com/IceCoffee426"
+        ><img class="logo" src="./images/github-logo.png" alt="Github logo"
+      /></a>
+      <p>MMXXIII</p>
+    </footer>
+  </body>
+</html>

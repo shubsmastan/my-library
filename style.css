@@ -1,0 +1,359 @@
+/* Set up formatting */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  /* Colours */
+  --color-sage: #5b8e7d;
+  --color-beige: #f0eccf;
+  --color-orange: #fbc252;
+  --color-red: #bc4b51;
+  --color-beige-hover: rgb(199, 194, 159);
+
+  /* Fonts, weights, sizes */
+  --ff-headings: "Josefin Sans", sans-serif;
+  --ff-text: "Nunito", sans-serif;
+  --fw-bold: 700;
+  --fw-reg: 400;
+  --fs-xxl: 3rem;
+  --fs-xl: 1.5rem;
+  --fs-lrg: 1.3rem;
+  --fs-med: 1rem;
+  --fs-small: 0.8rem;
+  --fs-xs: 0.6rem;
+
+  /* Spacing? */
+}
+
+body {
+  font-family: var(--ff-text);
+}
+
+/* Header */
+
+header {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  background: var(--color-orange);
+  height: 20vh;
+}
+
+h1 {
+  font-family: var(--ff-headings);
+}
+
+#login {
+  padding: 10px;
+  border: none;
+  border-radius: 7px;
+  background: var(--color-beige);
+  font-family: var(--ff-text);
+  font-size: var(--fs--med);
+  width: 120px;
+}
+
+#login:hover,
+#login:focus {
+  cursor: pointer;
+  background-color: var(--color-beige-hover);
+}
+
+/* Main library and cards */
+
+main {
+  background-color: var(--color-sage);
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  min-height: 72vh;
+}
+
+.book-library {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+#add-book {
+  height: 50px;
+  width: 50px;
+  font-family: var(--ff-headings);
+  font-size: var(--fs-xxl);
+  font-weight: var(--fw-bold);
+  background-color: var(--color-beige);
+  border-radius: 50%;
+  border: none;
+}
+
+#add-book:hover,
+#add-book:focus {
+  cursor: pointer;
+  background-color: var(--color-beige-hover);
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-beige);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+  min-height: 250px;
+  overflow: hidden;
+}
+
+/* Book card top buttons */
+
+.card-buttons {
+  display: flex;
+  justify-content: end;
+  gap: 7px;
+  padding: 0 7px;
+}
+
+.delete {
+  color: var(--color-red);
+  font-weight: var(--fw-bold);
+  font-size: 1.9rem;
+  background-color: var(--color-beige);
+  border: none;
+  padding: 2px;
+}
+
+.confirm,
+.edit {
+  right: 35px;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-lrg);
+  background-color: var(--color-beige);
+  border: none;
+  padding: 2px;
+}
+
+.edit {
+  color: var(--color-orange);
+}
+
+.confirm {
+  color: var(--color-sage);
+}
+
+.delete:hover,
+.delete:focus,
+.confirm:hover,
+.confirm:focus,
+.edit:hover,
+.edit:focus {
+  cursor: pointer;
+}
+
+/* Book card main details */
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 15px 15px;
+  font-size: var(--fs-lrg);
+  text-align: center;
+  flex-grow: 1;
+}
+
+.title {
+  font-style: italic;
+}
+
+.read-toggle {
+  font-family: var(--ff-text);
+  font-size: var(--fs-lrg);
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  color: #fff;
+}
+
+.read-toggle:hover {
+  cursor: pointer;
+}
+
+.read {
+  background-color: var(--color-sage);
+}
+
+.read::after {
+  content: "Read";
+}
+
+.not-read {
+  background-color: var(--color-red);
+}
+
+.not-read::after {
+  content: "Not read";
+}
+
+/* Book form formatting */
+
+input {
+  font-family: var(--ff-text);
+  font-size: var(--fs-lrg);
+}
+
+#book-form {
+  order: -1;
+  display: none;
+}
+
+/* Deletion modal and animation */
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding-top: 250px;
+  overflow: auto;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--color-beige);
+  margin: auto;
+  border: 1px solid #888;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 8px;
+  width: 80%;
+  animation-name: fade-from-top;
+  animation-duration: 0.3s;
+}
+
+.edit-modal-content {
+  position: relative;
+  border: 1px solid #888;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: fade-from-top;
+  animation-duration: 0.3s;
+  margin: auto;
+}
+
+@keyframes fade-from-top {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-header,
+.modal-footer,
+.modal-body {
+  padding: 15px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.modal-btn {
+  font-family: var(--ff-text);
+  font-size: var(--fs-lrg);
+  border: none;
+  padding: 5px;
+  border-radius: 8px;
+  width: 100px;
+  color: #fff;
+  margin: 15px 0;
+}
+
+.modal-btn:hover {
+  cursor: pointer;
+}
+
+.yes {
+  background-color: var(--color-sage);
+}
+
+.no {
+  background-color: var(--color-red);
+}
+
+/* Footer section */
+
+footer {
+  background-color: var(--color-red);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 8vh;
+}
+
+.logo {
+  width: 30px;
+  height: auto;
+}
+
+/* Screen width media queries */
+
+@media (min-width: 550px) {
+  header {
+    flex-direction: row;
+    padding: 20px 100px;
+    height: 10vh;
+  }
+
+  main {
+    min-height: 82vh;
+  }
+
+  .book-library {
+    padding: 20px 80px;
+    gap: 20px;
+  }
+
+  .modal-content {
+    width: 60%;
+  }
+
+  .edit-modal-content {
+    width: 80%;
+  }
+}
+
+@media (min-width: 825px) {
+  .edit-modal-content {
+    width: 65%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .modal-content {
+    width: 40%;
+  }
+
+  .edit-modal-content {
+    width: 50%;
+  }
+}
