@@ -310,6 +310,16 @@ footer {
   min-height: 8vh;
 }
 
+footer a {
+  text-decoration: none;
+  color: #fff;
+}
+
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+}
+
 .logo {
   width: 30px;
   height: auto;
