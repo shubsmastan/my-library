@@ -1,6 +1,7 @@
 # My Library App
 
-An app to keep track of your reading lists. Designed as part of [The Odin Project's](https://www.theodinproject.com/) full-stack JavaScript pathway. [Live preview](https://shubsmastan.github.io/my-library).
+[Live preview](https://shubsmastan.github.io/my-library).<br/><br/>
+An app to keep track of your reading lists. Designed as part of [The Odin Project's](https://www.theodinproject.com/) full-stack JavaScript pathway.
 
 ## Description
 
